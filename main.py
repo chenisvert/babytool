@@ -6,7 +6,7 @@ import requests
 import json
 
 from utils import system
-
+from utils import res 
 def start_environment():
     os_name = platform.system()
     os_version = platform.release()
@@ -48,6 +48,7 @@ def choose():
         print("内存占用："+system.get_memory_usage())
         value1,value2,value3 = system.get_disk_usage()
         print("磁盘占用："+value1+"+\t+",value2+"\t"+value3)
+       
     elif chooses == "2":
         case2()
     elif chooses == "3":
