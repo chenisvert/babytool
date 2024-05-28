@@ -13,7 +13,6 @@ def start_environment():
     url = 'https://cloud.lxweb.cn/f/JogGFk/1.json'
     
     response = requests.get(url)
-
     if response.status_code == 200:
         data = response.json()
         software = data.get('software')
@@ -26,8 +25,11 @@ def start_environment():
         else:
             False
     else:
-        print('请求失败')
-        return False
+        network_choose = input('脚本加载失败，请检查您的网络环境，如果您的网络环境正常可以选择跳过(y/n)' )
+        if network_choose == "y":
+            return True
+        else:
+            return False    
 
 
 def choose():
@@ -40,7 +42,12 @@ def choose():
     chooses = input("输入数字选择工具：\n")
     # 调用相应的函数
     if chooses == "1":
-        print(system.get_disk_usage())
+        #这里是个测试
+        print("=================系统状况=================");
+        print("CPU占用："+system.get_cpu_usage())
+        print("内存占用："+system.get_memory_usage())
+        value1,value2,value3 = system.get_disk_usage()
+        print("磁盘占用："+value1+"+\t+",value2+"\t"+value3)
     elif chooses == "2":
         case2()
     elif chooses == "3":

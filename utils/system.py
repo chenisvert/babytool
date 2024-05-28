@@ -1,7 +1,9 @@
 import psutil
 
 def get_cpu_usage():
-    return psutil.cpu_percent(interval=1)
+    cpu_utilization = psutil.cpu_percent(interval=1) 
+    cpu_utilization =  f"{cpu_utilization:.2f}%"
+    return  cpu_utilization
 
 def get_memory_usage():
   # 获取系统内存信息
